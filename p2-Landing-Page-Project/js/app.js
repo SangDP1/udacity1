@@ -5,10 +5,12 @@ let sectionNavPositions = [];
 let prePosition = 0;
 let currentPosition = 0;
 
+// Scroll to the specified Section Positions
 function scrollToSection(sectionID) {
 	window.scrollTo(0, sectionID);
 }
 
+// Build the nav bar
 sectionNav.forEach((element, index) => {
 	let sectionName = element.getAttribute("data-nav");
 	let toOffSection = element.offsetTop + 30;
@@ -21,9 +23,11 @@ sectionNav.forEach((element, index) => {
 document.addEventListener("scroll", () => {
 	
 	currentPosition = this.scrollY;
+	// Section Positions
 	sectionNavPositions = [];
 	sectionNav.forEach((element) => sectionNavPositions.push(element.getBoundingClientRect().top + 50));
 
+	// Adding and removing active sections
 	let addIndex = sectionNavPositions.findIndex((element) => element > 0);
 	for (let i = 0; i < sectionNavLength; i++) {
 		if (addIndex === i) {
