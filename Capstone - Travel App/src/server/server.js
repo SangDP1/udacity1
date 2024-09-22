@@ -171,6 +171,4 @@ app.post("/WeatherbitNormal", function(req, res){
             res.send(data);
         })
 });
-
-
-
+module.exports = app;
